@@ -1,0 +1,77 @@
+// ==========================================================================
+// Grid Container
+// ==========================================================================
+
+.grid__row {
+  @include mq(medium) {
+    @include flex-box;
+    @include flex-justify;
+  } 
+  @include mq(small) {
+    margin-bottom: 30px;
+    margin-top: 30px;
+  }       
+  @extend %clearfix;
+  @extend .centered;
+  .headline--secondary {
+    @extend %hdln-sec;
+    margin-bottom: em(22px, 24px);
+    margin-left: 0px;   
+  }
+  width: 90%;
+ 
+  // Make nested grid 100%
+  [class*="grid__col--"] > & {
+    width: 100%; 
+  }
+
+  // Set a max-width for grid container
+  @include mq(large) {
+    max-width: $g-cont-max-w;
+  }
+}
+// ==========================================================================
+// Grid Columns
+// ==========================================================================
+
+// Calculate grid columns
+
+.grid__col {
+  @include mq(medium) {
+    @include g-columns; 
+  }
+}
+
+// Column styles
+
+[class^="grid__col--"] {
+  @include mq(small)  {
+    margin-top: em(12px);
+    margin-bottom: em(12px);
+  }
+  @include mq(medium) {
+    @include doubly(percentage($g-gutter-width / $context));    
+    float: left;
+    min-height: 1px;
+    padding-left: 10px;
+    padding-right: 10px;
+    &:last-of-type {
+      float: right;
+    }
+  }
+}
+
+// list of grid 
+
+@each $num, $color in $gird-colors{
+  .grid__col--#{$num}.theme__colors{
+    background-color: $color;
+    padding: em(10px);
+    margin-bottom: em(50px);
+    text-align: center;
+    border-radius : $br--default;
+    @include mq(small) {
+      margin-bottom: em(10px);
+    }
+  }
+}

@@ -1,0 +1,30 @@
+// ==========================================================================
+// Form Elements
+// ==========================================================================
+
+.form {
+	@include e(label) {
+		@include m(hidden) {
+			@extend .srt;
+		}
+		display: block;
+		margin-bottom: em(10px);
+	}
+
+	@include e(input) {
+		outline: 0;
+		padding: em(15px);
+		font-size : em(18px);
+		margin-bottom: em(20px, 18px);
+		border: none;
+		border-bottom: 6px solid $fountain-blue ;
+		border-radius: $br--default;
+		width: 100%;
+		color: palette(black, dark);
+		font-weight: $font-weight--medium;
+	}
+
+	[class^="btn--"]{
+		width: 100%;
+	}
+}

@@ -1,0 +1,37 @@
+/* Web Fonts -------------------- */
+
+
+
+.headline {
+
+  &--primary {
+    @extend %hdln-prim;
+    // margin-bottom: em(70px, 42px);
+  }
+
+  &--secondary {
+    @extend %hdln-sec;
+    margin-bottom: em(22px, 24px);
+    margin-top: em(22px, 24px);
+    margin-left: 7%;
+  }
+}
+
+.link{
+  color:$scooter; 
+  text-decoration: none;
+  font-weight: $font-weight--bold;
+}
+
+
+.blockquote {
+  @include mq(medium){
+    margin: em(32px, 24px) 0;
+    font-size: em(24px);
+  }
+  padding: 0 0 0 5%;
+  border-left: em(8px, 24px) solid $fountain-blue ; 
+  font-weight: $font-weight--light;
+  font-style : italic;
+  font-size : em(20px);
+}
